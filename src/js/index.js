@@ -8,12 +8,12 @@ async function connectButton() {
 }
 
 Moralis.onWeb3Enabled(async (data) => {
-    if (data.chainId !== 1 && metamaskInstalled) await Moralis.switchNetwork("0x1");
+    if (data.chainId !== 3 && metamaskInstalled) await Moralis.switchNetwork("0x3");
     updateState(true);
     console.log(data);
 });
 Moralis.onChainChanged(async (chain) => {
-    if (chain !== "0x1" && metamaskInstalled) await Moralis.switchNetwork("0x1");
+    if (chain !== "0x3" && metamaskInstalled) await Moralis.switchNetwork("0x3");
 });
 window.ethereum ? window.ethereum.on('disconnect', (err) => {
     console.log(err);
